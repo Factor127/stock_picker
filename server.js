@@ -10,7 +10,22 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+// Serve static files with proper CSP headers
 app.use(express.static('public'));
+
+// Add CSP headers to allow inline scripts and styles
+app.use((req, res, next) => {
+    res.setHeader(
+        'Content-Security-Policy',
+        "default-src 'self'; " +
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; " +
+        "style-src 'self' 'unsafe-inline'; " +
+        "connect-src 'self' https://www.alphavantage.co; " +
+        "img-src 'self' data: https:; " +
+        "font-src 'self' data:;"
+    );
+    next();
+});
 
 // API Routes
 app.use('/api', require('./routes/api'));
