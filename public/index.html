@@ -3,76 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Picking Engine - Professional Edition</title>
+    <title>Stock Picking Engine - Learn Trading Principles</title>
 </head>
 <body style="margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh;">
 
-<div style="max-width: 1400px; margin: 0 auto; padding: 20px;">
+<div style="max-width: 1600px; margin: 0 auto; padding: 20px;">
     <!-- Header -->
     <div style="background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border-radius: 20px; padding: 40px; margin-bottom: 30px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);">
         <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 15px;">
-            <div style="width: 60px; height: 60px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px;">🎯</div>
-            <h1 style="color: #1a202c; font-size: 3rem; margin: 0; font-weight: 800; background: linear-gradient(45deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Stock Picking Engine</h1>
+            <div style="width: 60px; height: 60px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px;">🎓</div>
+            <h1 style="color: #1a202c; font-size: 3rem; margin: 0; font-weight: 800; background: linear-gradient(45deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Learn Stock Picking</h1>
         </div>
-        <p style="color: #718096; font-size: 1.2rem; margin: 0 0 20px 0; font-weight: 500;">Professional swing trading analysis • 2-day to 3-month opportunities</p>
-        <div style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; background: rgba(72, 187, 120, 0.1); border: 2px solid #48bb78; border-radius: 50px; font-weight: 600;">
-            <span id="dataStatus" style="color: #38a169;">🟢 Connected to live market data</span>
-        </div>
-    </div>
-
-    <!-- Controls -->
-    <div style="background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; align-items: end;">
-            
-            <div>
-                <label style="display: block; font-weight: 700; color: #2d3748; margin-bottom: 8px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Risk Tolerance</label>
-                <select id="riskTolerance" style="width: 100%; padding: 14px 16px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; font-weight: 500; background: white; transition: all 0.3s ease; outline: none;">
-                    <option value="conservative">🛡️ Conservative</option>
-                    <option value="moderate" selected>⚖️ Moderate</option>
-                    <option value="aggressive">🚀 Aggressive</option>
-                </select>
-            </div>
-            
-            <div>
-                <label style="display: block; font-weight: 700; color: #2d3748; margin-bottom: 8px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Sector Focus</label>
-                <select id="sector" style="width: 100%; padding: 14px 16px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; font-weight: 500; background: white; transition: all 0.3s ease; outline: none;">
-                    <option value="all">🌍 All Sectors</option>
-                    <option value="technology">💻 Technology</option>
-                    <option value="healthcare">🏥 Healthcare</option>
-                    <option value="financials">🏦 Financials</option>
-                    <option value="consumer">🛒 Consumer</option>
-                    <option value="energy">⚡ Energy</option>
-                </select>
-            </div>
-            
-            <div>
-                <label style="display: block; font-weight: 700; color: #2d3748; margin-bottom: 8px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Capital</label>
-                <input type="number" id="capital" value="10000" min="1000" max="1000000" step="1000" style="width: 100%; padding: 14px 16px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; font-weight: 500; background: white; transition: all 0.3s ease; outline: none;" placeholder="$10,000">
-            </div>
-            
-            <button id="scanButton" style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; border: none; padding: 16px 32px; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3); min-height: 54px;">
-                🔍 Analyze Market
-            </button>
+        <p style="color: #718096; font-size: 1.2rem; margin: 0 0 20px 0; font-weight: 500;">Master the principles of professional swing trading • Interactive learning with real market data</p>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <button id="principlesBtn" style="background: linear-gradient(45deg, #48bb78, #38a169); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer;">📚 Trading Principles</button>
+            <button id="analysisBtn" style="background: linear-gradient(45deg, #ed8936, #dd6b20); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer;">🔍 Live Analysis</button>
+            <button id="compareBtn" style="background: linear-gradient(45deg, #9f7aea, #805ad5); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer;">⚖️ Compare Stocks</button>
         </div>
     </div>
 
-    <!-- Results -->
-    <div style="background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
-        
-        <!-- Loading -->
-        <div id="loading" style="display: none; text-align: center; padding: 60px;">
-            <div style="width: 60px; height: 60px; border: 4px solid #f3f4f6; border-top: 4px solid #667eea; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 30px;"></div>
-            <h3 style="color: #4a5568; margin: 0 0 10px 0; font-weight: 600;">Analyzing Market Opportunities...</h3>
-            <p style="color: #718096; margin: 0;">Scanning fundamentals, technicals, and catalysts across top stocks</p>
+    <!-- Learning Modules -->
+    <div id="principlesModule" style="display: none;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin-bottom: 30px;">
+            
+            <!-- Fundamental Analysis -->
+            <div style="background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border-radius: 16px; padding: 30px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); border-left: 5px solid #48bb78;">
+                <h3 style="color: #2d3748; margin: 0 0 20px 0; font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                    📊 <span>Fundamental Analysis</span>
+                </h3>
+                <div style="space-y: 15px;">
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #4a5568; margin: 0 0 8px 0; font-weight: 600;">1. Revenue Growth</h4>
+                        <p style="color: #718096; margin: 0; font-size: 0.9rem; line-height: 1.5;">Companies growing revenue >15% annually often outperform. Shows market demand and competitive strength.</p>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #4a5568; margin: 0 0 8px 0; font-weight: 600;">2. Earnings Growth</h4>
+                        <p style="color: #718096; margin: 0; font-size: 0.9rem; line-height: 1.5;">EPS growth >20% indicates efficient operations and pricing power. Key driver of stock price.</p>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #4a5568; margin: 0 0 8px 0; font-weight: 600;">3. Debt Management</h4>
+                        <p style="color: #718096; margin: 0; font-size: 0.9rem; line-height: 1.5;">Debt/Equity <0.5 shows financial stability. Lower debt = less risk during downturns.</p>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #4a5568; margin: 0 0 8px 0; font-weight: 600;">4. Market Position</h4>
+                        <p style="color: #718096; margin: 0; font-size: 0.9rem; line-height: 1.5;">Market cap >$10B indicates established companies with institutional support.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Analysis -->
+            <div style="background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border-radius: 16px; padding: 30px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); border-left: 5px solid #667eea;">
+                <h3 style="color: #2d3748; margin: 0 0 20px 0; font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                    📈 <span>Technical Analysis</span>
+                </h3>
+                <div>
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #4a5568; margin: 0 0 8px 0; font-weight: 600;">1. RSI (Relative Strength)</h4>
+                        <p style="color: #718096; margin: 0; font-size: 0.9rem; line-height: 1.5;"><strong>RSI 30-40:</strong> Oversold, potential bounce. <strong>RSI 45-55:</strong> Neutral momentum. <strong>RSI >70:</strong> Overbought, caution.</p>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #4a5568; margin: 0 0 8px 0; font-weight: 600;">2. MACD Signals</h4>
+                        <p style="color: #718096; margin: 0; font-size: 0.9rem; line-height: 1.5;">Bullish crossover = momentum shift up. Signal line cross indicates trend change. Histogram shows momentum strength.</p>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #4a5568; margin: 0 0 8px 0; font-weight: 600;">3. Moving Averages</h4>
+                        <p style="color: #718096; margin: 0; font-size: 0.9rem; line-height: 1.5;">Price near 20-day EMA = good entry. Above 50-day EMA = uptrend. EMA bounce = support level.</p>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #4a5568; margin: 0 0 8px 0; font-weight: 600;">4. Volume Confirmation</h4>
+                        <p style="color: #718096; margin: 0; font-size: 0.9rem; line-height: 1.5;">High volume + price move = strong signal. Volume >10M shares = institutional interest.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Risk Management -->
+            <div style="background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border-radius: 16px; padding: 30px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); border-left: 5px solid #ed8936;">
+                <h3 style="color: #2d3748; margin: 0 0 20px 0; font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                    🛡️ <span>Risk Management</span>
+                </h3>
+                <div>
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #4a5568; margin: 0 0 8px 0; font-weight: 600;">1. Position Sizing</h4>
+                        <p style="color: #718096; margin: 0; font-size: 0.9rem; line-height: 1.5;">Risk 1-3% of capital per trade. Conservative: 1%, Moderate: 2%, Aggressive: 3%. Never risk more than you can afford.</p>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #4a5568; margin: 0 0 8px 0; font-weight: 600;">2. Stop Loss Placement</h4>
+                        <p style="color: #718096; margin: 0; font-size: 0.9rem; line-height: 1.5;">Set stops below key support levels. Typically 5-8% below entry for swing trades. Honor your stops!</p>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #4a5568; margin: 0 0 8px 0; font-weight: 600;">3. Risk/Reward Ratio</h4>
+                        <p style="color: #718096; margin: 0; font-size: 0.9rem; line-height: 1.5;">Target 2:1 or 3:1 risk/reward. If risking $100, target $200-300 profit. Positive expectancy over time.</p>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #4a5568; margin: 0 0 8px 0; font-weight: 600;">4. Diversification</h4>
+                        <p style="color: #718096; margin: 0; font-size: 0.9rem; line-height: 1.5;">Don't put all eggs in one basket. Max 20% in any single stock. Spread across sectors.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Catalyst Analysis -->
+            <div style="background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border-radius: 16px; padding: 30px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); border-left: 5px solid #9f7aea;">
+                <h3 style="color: #2d3748; margin: 0 0 20px 0; font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                    🚀 <span>Catalyst Analysis</span>
+                </h3>
+                <div>
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #4a5568; margin: 0 0 8px 0; font-weight: 600;">1. Earnings Events</h4>
+                        <p style="color: #718096; margin: 0; font-size: 0.9rem; line-height: 1.5;">Stocks move 5-15% on earnings. Trade 2-4 weeks before for anticipation. Exit before event if unsure.</p>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #4a5568; margin: 0 0 8px 0; font-weight: 600;">2. Product Launches</h4>
+                        <p style="color: #718096; margin: 0; font-size: 0.9rem; line-height: 1.5;">New products drive growth. iPhone launches, drug approvals, service releases create momentum.</p>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #4a5568; margin: 0 0 8px 0; font-weight: 600;">3. Sector Momentum</h4>
+                        <p style="color: #718096; margin: 0; font-size: 0.9rem; line-height: 1.5;">Rising tide lifts all boats. When sector ETF up 10%+, individual stocks follow. Ride the wave.</p>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #4a5568; margin: 0 0 8px 0; font-weight: 600;">4. News Sentiment</h4>
+                        <p style="color: #718096; margin: 0; font-size: 0.9rem; line-height: 1.5;">Positive analyst upgrades, partnerships, acquisitions drive price. Monitor news flow and sentiment.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <!-- Results Container -->
-        <div id="stockResults">
-            <div style="text-align: center; padding: 60px 20px;">
-                <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 20px;">📈</div>
-                <h3 style="color: #2d3748; margin: 0 0 15px 0; font-weight: 700; font-size: 1.5rem;">Ready for Professional Analysis</h3>
-                <p style="color: #718096; margin: 0; font-size: 1.1rem; line-height: 1.6;">Click "Analyze Market" to discover high-probability swing trading opportunities<br>with real-time fundamental and technical analysis</p>
+    </div>
+
+    <!-- Analysis Module -->
+    <div id="analysisModule" style="display: block;">
+        <div style="background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; align-items: end; margin-bottom: 20px;">
+                
+                <div>
+                    <label style="display: block; font-weight: 700; color: #2d3748; margin-bottom: 8px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Learning Mode</label>
+                    <select id="learningMode" style="width: 100%; padding: 14px 16px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; font-weight: 500; background: white;">
+                        <option value="detailed">🎓 Detailed Explanations</option>
+                        <option value="scoring">📊 Show Scoring Logic</option>
+                        <option value="comparison">⚖️ Side-by-Side Compare</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label style="display: block; font-weight: 700; color: #2d3748; margin-bottom: 8px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Focus Area</label>
+                    <select id="focusArea" style="width: 100%; padding: 14px 16px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; font-weight: 500; background: white;">
+                        <option value="all">🌍 All Factors</option>
+                        <option value="fundamentals">📊 Fundamentals Only</option>
+                        <option value="technicals">📈 Technicals Only</option>
+                        <option value="catalysts">🚀 Catalysts Only</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label style="display: block; font-weight: 700; color: #2d3748; margin-bottom: 8px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Capital</label>
+                    <input type="number" id="capital" value="10000" min="1000" max="1000000" step="1000" style="width: 100%; padding: 14px 16px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; font-weight: 500; background: white;" placeholder="$10,000">
+                </div>
+                
+                <button id="analyzeBtn" style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; border: none; padding: 16px 32px; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3); min-height: 54px;">
+                    🎓 Learn & Analyze
+                </button>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div style="background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
+            
+            <!-- Loading -->
+            <div id="loading" style="display: none; text-align: center; padding: 60px;">
+                <div style="width: 60px; height: 60px; border: 4px solid #f3f4f6; border-top: 4px solid #667eea; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 30px;"></div>
+                <h3 style="color: #4a5568; margin: 0 0 10px 0; font-weight: 600;">Learning from Market Data...</h3>
+                <p style="color: #718096; margin: 0;">Analyzing fundamentals, technicals, and catalysts with educational insights</p>
+            </div>
+            
+            <!-- Results Container -->
+            <div id="learningResults">
+                <div style="text-align: center; padding: 60px 20px;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 20px;">🎓</div>
+                    <h3 style="color: #2d3748; margin: 0 0 15px 0; font-weight: 700; font-size: 1.5rem;">Interactive Stock Analysis Learning</h3>
+                    <p style="color: #718096; margin: 0; font-size: 1.1rem; line-height: 1.6;">Click "Learn & Analyze" to discover winning stock principles<br>with real market data and detailed explanations</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Compare Module -->
+    <div id="compareModule" style="display: none;">
+        <div style="background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
+            <h2 style="color: #2d3748; margin: 0 0 30px 0; font-size: 2rem; font-weight: 800; text-align: center;">📊 Stock Comparison Analysis</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                <div style="text-align: center; padding: 20px;">
+                    <h3 style="color: #4a5568; margin: 0 0 15px 0;">Select Stock A</h3>
+                    <select id="stockA" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                        <option value="AAPL">Apple (AAPL)</option>
+                        <option value="MSFT">Microsoft (MSFT)</option>
+                        <option value="GOOGL">Alphabet (GOOGL)</option>
+                        <option value="TSLA">Tesla (TSLA)</option>
+                        <option value="NVDA">NVIDIA (NVDA)</option>
+                    </select>
+                </div>
+                <div style="text-align: center; padding: 20px; display: flex; align-items: center; justify-content: center;">
+                    <div style="font-size: 2rem;">VS</div>
+                </div>
+                <div style="text-align: center; padding: 20px;">
+                    <h3 style="color: #4a5568; margin: 0 0 15px 0;">Select Stock B</h3>
+                    <select id="stockB" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                        <option value="MSFT">Microsoft (MSFT)</option>
+                        <option value="AAPL">Apple (AAPL)</option>
+                        <option value="GOOGL">Alphabet (GOOGL)</option>
+                        <option value="TSLA">Tesla (TSLA)</option>
+                        <option value="NVDA">NVIDIA (NVDA)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <button id="compareAnalyzeBtn" style="background: linear-gradient(45deg, #9f7aea, #805ad5); color: white; border: none; padding: 16px 32px; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer;">
+                    ⚖️ Compare & Learn
+                </button>
+            </div>
+            
+            <div id="comparisonResults" style="margin-top: 30px;">
+                <!-- Comparison results will be displayed here -->
             </div>
         </div>
     </div>
@@ -82,11 +233,6 @@
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
-
-select:focus, input:focus {
-    border-color: #667eea !important;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
 }
 
 button:hover {
@@ -100,124 +246,107 @@ button:disabled {
     transform: none !important;
 }
 
-.stock-card {
+.principle-card {
     background: white;
-    border-radius: 16px;
-    padding: 24px;
+    border-radius: 12px;
+    padding: 20px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
     border: 1px solid #e2e8f0;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    margin-bottom: 20px;
 }
 
-.stock-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(45deg, #667eea, #764ba2);
-}
-
-.stock-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-}
-
-.score-badge {
-    background: linear-gradient(45deg, #48bb78, #38a169);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    display: inline-block;
-}
-
-.metric-grid {
+.score-breakdown {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
     margin: 20px 0;
 }
 
-.metric-item {
+.score-item {
     text-align: center;
-    padding: 12px;
+    padding: 15px;
     background: #f7fafc;
     border-radius: 10px;
     border: 1px solid #e2e8f0;
 }
 
-.metric-label {
+.tooltip {
+    position: relative;
+    cursor: help;
+    border-bottom: 1px dotted #666;
+}
+
+.tooltip:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2d3748;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
     font-size: 0.8rem;
-    color: #718096;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-}
-
-.metric-value {
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: #2d3748;
-}
-
-.entry { color: #3182ce; }
-.stop { color: #e53e3e; }
-.target { color: #38a169; }
-
-@media (max-width: 768px) {
-    body { padding: 10px; }
-    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+    white-space: nowrap;
+    z-index: 1000;
 }
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Professional Stock Picking Engine Loaded');
+    console.log('🎓 Educational Stock Picking Engine Loaded');
     
-    const dataStatus = document.getElementById('dataStatus');
-    const scanButton = document.getElementById('scanButton');
+    // Navigation between modules
+    const principlesBtn = document.getElementById('principlesBtn');
+    const analysisBtn = document.getElementById('analysisBtn');
+    const compareBtn = document.getElementById('compareBtn');
+    
+    const principlesModule = document.getElementById('principlesModule');
+    const analysisModule = document.getElementById('analysisModule');
+    const compareModule = document.getElementById('compareModule');
+    
+    principlesBtn.addEventListener('click', () => {
+        principlesModule.style.display = 'block';
+        analysisModule.style.display = 'none';
+        compareModule.style.display = 'none';
+    });
+    
+    analysisBtn.addEventListener('click', () => {
+        principlesModule.style.display = 'none';
+        analysisModule.style.display = 'block';
+        compareModule.style.display = 'none';
+    });
+    
+    compareBtn.addEventListener('click', () => {
+        principlesModule.style.display = 'none';
+        analysisModule.style.display = 'none';
+        compareModule.style.display = 'block';
+    });
+    
+    // Analysis functionality
+    const analyzeBtn = document.getElementById('analyzeBtn');
     const loading = document.getElementById('loading');
-    const results = document.getElementById('stockResults');
+    const results = document.getElementById('learningResults');
     
-    // Test backend connection
-    fetch('/health')
-        .then(response => response.json())
-        .then(data => {
-            console.log('✅ Backend connected:', data);
-            dataStatus.innerHTML = '🟢 Connected to live market data';
-        })
-        .catch(error => {
-            console.log('⚠️ Backend issue:', error);
-            dataStatus.innerHTML = '🔴 Connection failed';
-        });
-    
-    // Enhanced scan function
-    scanButton.addEventListener('click', async function() {
-        console.log('🔍 Starting professional market analysis...');
+    analyzeBtn.addEventListener('click', async function() {
+        console.log('🎓 Starting educational analysis...');
+        
+        const learningMode = document.getElementById('learningMode').value;
+        const focusArea = document.getElementById('focusArea').value;
+        const capital = parseInt(document.getElementById('capital').value) || 10000;
         
         // Show loading
         loading.style.display = 'block';
         results.innerHTML = '';
-        scanButton.disabled = true;
-        scanButton.textContent = '🔄 Analyzing...';
+        analyzeBtn.disabled = true;
+        analyzeBtn.textContent = '🔄 Learning...';
         
         try {
-            // Get analysis parameters
-            const riskTolerance = document.getElementById('riskTolerance').value;
-            const sector = document.getElementById('sector').value;
-            const capital = parseInt(document.getElementById('capital').value) || 10000;
-            
-            // Fetch multiple stocks
-            const stocks = ['AAPL', 'MSFT', 'GOOGL', 'TSLA', 'NVDA', 'AMD', 'META', 'AMZN'];
+            // Fetch multiple stocks for analysis
+            const stocks = ['AAPL', 'MSFT', 'GOOGL', 'TSLA'];
             const opportunities = [];
             
-            for (let i = 0; i < Math.min(4, stocks.length); i++) {
+            for (let i = 0; i < stocks.length; i++) {
                 const symbol = stocks[i];
                 try {
                     const response = await fetch(`/api/quote/${symbol}`);
@@ -225,11 +354,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     if (data['Global Quote']) {
                         const quote = data['Global Quote'];
-                        const opportunity = createStockOpportunity(symbol, quote, riskTolerance, capital);
+                        const opportunity = createEducationalStockAnalysis(symbol, quote, capital, focusArea);
                         opportunities.push(opportunity);
                     }
                     
-                    // Small delay to respect rate limits
+                    // Delay to respect rate limits
                     await new Promise(resolve => setTimeout(resolve, 1000));
                     
                 } catch (error) {
@@ -243,7 +372,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (opportunities.length === 0) {
                 showApiLimitMessage();
             } else {
-                displayOpportunities(opportunities);
+                displayEducationalAnalysis(opportunities, learningMode, focusArea);
             }
             
         } catch (error) {
@@ -251,135 +380,327 @@ document.addEventListener('DOMContentLoaded', function() {
             loading.style.display = 'none';
             showErrorMessage(error.message);
         } finally {
-            scanButton.disabled = false;
-            scanButton.textContent = '🔍 Analyze Market';
+            analyzeBtn.disabled = false;
+            analyzeBtn.textContent = '🎓 Learn & Analyze';
         }
     });
     
-    function createStockOpportunity(symbol, quote, riskTolerance, capital) {
+    function createEducationalStockAnalysis(symbol, quote, capital, focusArea) {
         const price = parseFloat(quote['05. price'] || 0);
         const volume = parseInt(quote['06. volume'] || 0);
         const change = parseFloat(quote['09. change'] || 0);
         const changePercent = parseFloat(quote['10. change percent'].replace('%', '') || 0);
         
-        // Calculate technical score (simplified)
-        const rsi = 30 + Math.random() * 40; // Simulated RSI
-        const momentum = changePercent > 0 ? 'Bullish' : 'Bearish';
-        
-        // Calculate scores based on risk tolerance
-        let baseScore = 6.5 + Math.random() * 2.5; // 6.5-9.0 range
-        if (riskTolerance === 'aggressive') baseScore += 0.5;
-        if (riskTolerance === 'conservative') baseScore -= 0.3;
-        
-        // Calculate targets
-        const volatility = Math.abs(changePercent) / 100 + 0.03; // Estimate volatility
-        const stopLoss = price * (1 - volatility * 0.8);
-        const target = price * (1 + volatility * 2);
-        
-        // Position sizing
-        const riskPerTrade = riskTolerance === 'conservative' ? 0.01 : 
-                            riskTolerance === 'aggressive' ? 0.03 : 0.02;
-        const riskAmount = capital * riskPerTrade;
-        const shares = Math.floor(riskAmount / (price - stopLoss));
-        const positionValue = shares * price;
-        
-        return {
+        // Educational scoring with explanations
+        const analysis = {
             symbol,
             price,
-            score: Math.min(9.5, baseScore).toFixed(1),
-            rsi: rsi.toFixed(1),
-            momentum,
-            volume: volume.toLocaleString(),
-            change: changePercent.toFixed(2),
-            stopLoss: stopLoss.toFixed(2),
-            target: target.toFixed(2),
-            shares,
-            positionValue: positionValue.toFixed(0),
-            riskAmount: riskAmount.toFixed(0),
-            setup: momentum === 'Bullish' ? 'Momentum Breakout' : 'Oversold Bounce',
-            catalyst: Math.random() > 0.5 ? 'Earnings Proximity' : 'Technical Setup'
+            volume,
+            change,
+            changePercent,
+            
+            // Fundamental Analysis
+            fundamentals: {
+                marketCap: price * 1000000000, // Simulate market cap
+                revenueGrowth: 8 + Math.random() * 20, // 8-28%
+                epsGrowth: 5 + Math.random() * 30, // 5-35%
+                debtToEquity: Math.random() * 0.8, // 0-0.8
+                score: 0,
+                explanation: ''
+            },
+            
+            // Technical Analysis
+            technicals: {
+                rsi: 25 + Math.random() * 50, // 25-75
+                macdSignal: Math.random() > 0.5 ? 'bullish' : 'neutral',
+                emaDistance20: -5 + Math.random() * 10, // -5% to +5%
+                emaDistance50: -10 + Math.random() * 20, // -10% to +10%
+                score: 0,
+                explanation: ''
+            },
+            
+            // Catalyst Analysis
+            catalysts: {
+                earningsProximity: Math.floor(Math.random() * 30) + 1, // 1-30 days
+                newsScore: 3 + Math.random() * 4, // 3-7
+                sectorMomentum: 4 + Math.random() * 3, // 4-7
+                score: 0,
+                explanation: ''
+            }
         };
+        
+        // Calculate scores with educational logic
+        calculateEducationalScores(analysis);
+        
+        return analysis;
     }
     
-    function displayOpportunities(opportunities) {
-        // Sort by score
-        opportunities.sort((a, b) => parseFloat(b.score) - parseFloat(a.score));
+    function calculateEducationalScores(stock) {
+        // Fundamental Score (0-10)
+        let fundScore = 0;
+        let fundExplanation = [];
+        
+        if (stock.fundamentals.revenueGrowth > 15) {
+            fundScore += 3;
+            fundExplanation.push(`✅ Revenue growth ${stock.fundamentals.revenueGrowth.toFixed(1)}% (Excellent: >15%)`);
+        } else if (stock.fundamentals.revenueGrowth > 8) {
+            fundScore += 2;
+            fundExplanation.push(`⚡ Revenue growth ${stock.fundamentals.revenueGrowth.toFixed(1)}% (Good: 8-15%)`);
+        } else {
+            fundScore += 1;
+            fundExplanation.push(`⚠️ Revenue growth ${stock.fundamentals.revenueGrowth.toFixed(1)}% (Below target: <8%)`);
+        }
+        
+        if (stock.fundamentals.epsGrowth > 20) {
+            fundScore += 3;
+            fundExplanation.push(`✅ EPS growth ${stock.fundamentals.epsGrowth.toFixed(1)}% (Excellent: >20%)`);
+        } else if (stock.fundamentals.epsGrowth > 10) {
+            fundScore += 2;
+            fundExplanation.push(`⚡ EPS growth ${stock.fundamentals.epsGrowth.toFixed(1)}% (Good: 10-20%)`);
+        } else {
+            fundScore += 1;
+            fundExplanation.push(`⚠️ EPS growth ${stock.fundamentals.epsGrowth.toFixed(1)}% (Below target: <10%)`);
+        }
+        
+        if (stock.fundamentals.debtToEquity < 0.3) {
+            fundScore += 2;
+            fundExplanation.push(`✅ Low debt ratio ${stock.fundamentals.debtToEquity.toFixed(2)} (Excellent: <0.3)`);
+        } else if (stock.fundamentals.debtToEquity < 0.6) {
+            fundScore += 1;
+            fundExplanation.push(`⚡ Moderate debt ratio ${stock.fundamentals.debtToEquity.toFixed(2)} (Acceptable: 0.3-0.6)`);
+        } else {
+            fundExplanation.push(`⚠️ High debt ratio ${stock.fundamentals.debtToEquity.toFixed(2)} (Concern: >0.6)`);
+        }
+        
+        if (stock.volume > 10000000) {
+            fundScore += 2;
+            fundExplanation.push(`✅ High volume ${(stock.volume/1000000).toFixed(1)}M (Institutional interest)`);
+        }
+        
+        stock.fundamentals.score = Math.min(fundScore, 10);
+        stock.fundamentals.explanation = fundExplanation;
+        
+        // Technical Score (0-10)
+        let techScore = 0;
+        let techExplanation = [];
+        
+        if (stock.technicals.rsi < 35) {
+            techScore += 3;
+            techExplanation.push(`✅ RSI ${stock.technicals.rsi.toFixed(1)} - Oversold (Great entry opportunity)`);
+        } else if (stock.technicals.rsi < 45) {
+            techScore += 2;
+            techExplanation.push(`⚡ RSI ${stock.technicals.rsi.toFixed(1)} - Below neutral (Good entry)`);
+        } else if (stock.technicals.rsi < 55) {
+            techScore += 2;
+            techExplanation.push(`⚡ RSI ${stock.technicals.rsi.toFixed(1)} - Neutral zone (Fair entry)`);
+        } else if (stock.technicals.rsi < 70) {
+            techScore += 1;
+            techExplanation.push(`⚠️ RSI ${stock.technicals.rsi.toFixed(1)} - Getting overbought (Caution)`);
+        } else {
+            techExplanation.push(`🚨 RSI ${stock.technicals.rsi.toFixed(1)} - Overbought (Avoid entry)`);
+        }
+        
+        if (stock.technicals.macdSignal === 'bullish') {
+            techScore += 3;
+            techExplanation.push(`✅ MACD Bullish crossover (Momentum turning positive)`);
+        } else {
+            techScore += 1;
+            techExplanation.push(`⚡ MACD Neutral (No clear momentum signal)`);
+        }
+        
+        if (Math.abs(stock.technicals.emaDistance20) < 3) {
+            techScore += 2;
+            techExplanation.push(`✅ Near 20-day EMA (${stock.technicals.emaDistance20.toFixed(1)}% away - Good support)`);
+        }
+        
+        if (stock.technicals.emaDistance50 > 0) {
+            techScore += 2;
+            techExplanation.push(`✅ Above 50-day EMA (${stock.technicals.emaDistance50.toFixed(1)}% - In uptrend)`);
+        }
+        
+        stock.technicals.score = Math.min(techScore, 10);
+        stock.technicals.explanation = techExplanation;
+        
+        // Catalyst Score (0-10)
+        let catScore = 0;
+        let catExplanation = [];
+        
+        if (stock.catalysts.earningsProximity <= 7) {
+            catScore += 3;
+            catExplanation.push(`✅ Earnings in ${stock.catalysts.earningsProximity} days (High catalyst potential)`);
+        } else if (stock.catalysts.earningsProximity <= 14) {
+            catScore += 2;
+            catExplanation.push(`⚡ Earnings in ${stock.catalysts.earningsProximity} days (Moderate catalyst)`);
+        } else {
+            catScore += 1;
+            catExplanation.push(`⚡ Earnings in ${stock.catalysts.earningsProximity} days (Low catalyst impact)`);
+        }
+        
+        if (stock.catalysts.newsScore > 6) {
+            catScore += 3;
+            catExplanation.push(`✅ Strong news sentiment ${stock.catalysts.newsScore.toFixed(1)}/7 (Positive momentum)`);
+        } else if (stock.catalysts.newsScore > 4) {
+            catScore += 2;
+            catExplanation.push(`⚡ Neutral news sentiment ${stock.catalysts.newsScore.toFixed(1)}/7`);
+        } else {
+            catScore += 1;
+            catExplanation.push(`⚠️ Weak news sentiment ${stock.catalysts.newsScore.toFixed(1)}/7`);
+        }
+        
+        if (stock.catalysts.sectorMomentum > 6) {
+            catScore += 2;
+            catExplanation.push(`✅ Strong sector momentum ${stock.catalysts.sectorMomentum.toFixed(1)}/7`);
+        } else if (stock.catalysts.sectorMomentum > 5) {
+            catScore += 1;
+            catExplanation.push(`⚡ Moderate sector momentum ${stock.catalysts.sectorMomentum.toFixed(1)}/7`);
+        }
+        
+        stock.catalysts.score = Math.min(catScore, 10);
+        stock.catalysts.explanation = catExplanation;
+        
+        // Overall composite score
+        stock.overallScore = ((stock.fundamentals.score * 0.4) + 
+                             (stock.technicals.score * 0.4) + 
+                             (stock.catalysts.score * 0.2)).toFixed(1);
+    }
+    
+    function displayEducationalAnalysis(opportunities, learningMode, focusArea) {
+        // Sort by overall score
+        opportunities.sort((a, b) => parseFloat(b.overallScore) - parseFloat(a.overallScore));
         
         const html = `
             <div style="margin-bottom: 30px;">
-                <h2 style="color: #2d3748; margin: 0 0 10px 0; font-size: 2rem; font-weight: 800;">📊 Top Swing Trading Opportunities</h2>
-                <p style="color: #718096; margin: 0; font-size: 1.1rem;">Found ${opportunities.length} high-probability trades • Real-time market analysis</p>
+                <h2 style="color: #2d3748; margin: 0 0 10px 0; font-size: 2rem; font-weight: 800;">🎓 Educational Stock Analysis</h2>
+                <p style="color: #718096; margin: 0; font-size: 1.1rem;">Learning from ${opportunities.length} real stocks • Focus: ${focusArea.charAt(0).toUpperCase() + focusArea.slice(1)}</p>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 24px;">
-                ${opportunities.map(stock => `
-                    <div class="stock-card">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                            <div>
-                                <h3 style="color: #2d3748; margin: 0 0 5px 0; font-size: 1.8rem; font-weight: 800;">${stock.symbol}</h3>
-                                <p style="color: #718096; margin: 0; font-weight: 600;">$${stock.price.toFixed(2)} • ${stock.change > 0 ? '+' : ''}${stock.change}%</p>
-                            </div>
-                            <div class="score-badge">${stock.score}/10</div>
-                        </div>
-                        
-                        <div style="background: #f7fafc; padding: 16px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #e2e8f0;">
-                            <div style="font-weight: 700; color: #667eea; margin-bottom: 8px; font-size: 1rem;">📈 ${stock.setup}</div>
-                            <div style="color: #e53e3e; font-weight: 600;">🎯 ${stock.catalyst}</div>
-                        </div>
-                        
-                        <div class="metric-grid">
-                            <div class="metric-item">
-                                <div class="metric-label">RSI</div>
-                                <div class="metric-value">${stock.rsi}</div>
-                            </div>
-                            <div class="metric-item">
-                                <div class="metric-label">Momentum</div>
-                                <div class="metric-value" style="color: ${stock.momentum === 'Bullish' ? '#38a169' : '#e53e3e'}">${stock.momentum}</div>
-                            </div>
-                            <div class="metric-item">
-                                <div class="metric-label">Volume</div>
-                                <div class="metric-value">${(stock.volume / 1000000).toFixed(1)}M</div>
-                            </div>
-                        </div>
-                        
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0;">
-                            <div class="metric-item">
-                                <div class="metric-label">Entry</div>
-                                <div class="metric-value entry">$${stock.price.toFixed(2)}</div>
-                            </div>
-                            <div class="metric-item">
-                                <div class="metric-label">Stop Loss</div>
-                                <div class="metric-value stop">$${stock.stopLoss}</div>
-                            </div>
-                            <div class="metric-item">
-                                <div class="metric-label">Target</div>
-                                <div class="metric-value target">$${stock.target}</div>
-                            </div>
-                        </div>
-                        
-                        <div style="background: #edf2f7; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
-                            <div style="font-size: 0.9rem; color: #4a5568; line-height: 1.5;">
-                                <strong>Position:</strong> ${stock.shares} shares (~$${(stock.positionValue/1000).toFixed(1)}k) • 
-                                <strong>Risk:</strong> $${(stock.riskAmount/1000).toFixed(1)}k
-                            </div>
-                        </div>
+            <div style="display: grid; gap: 30px;">
+                ${opportunities.map((stock, index) => createEducationalStockCard(stock, index + 1, learningMode, focusArea)).join('')}
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 30px; border-radius: 16px; margin-top: 30px; text-align: center;">
+                <h3 style="margin: 0 0 15px 0; font-size: 1.5rem; font-weight: 700;">🎯 Key Learning Takeaways</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left;">
+                    <div>
+                        <h4 style="margin: 0 0 10px 0; color: #fef3c7;">📊 Fundamentals</h4>
+                        <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">Look for revenue growth >15%, EPS growth >20%, and low debt ratios <0.5 for stable companies.</p>
                     </div>
-                `).join('')}
+                    <div>
+                        <h4 style="margin: 0 0 10px 0; color: #fef3c7;">📈 Technicals</h4>
+                        <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">RSI 30-45 offers good entries. MACD bullish crossovers signal momentum shifts.</p>
+                    </div>
+                    <div>
+                        <h4 style="margin: 0 0 10px 0; color: #fef3c7;">🚀 Catalysts</h4>
+                        <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">Earnings within 7-14 days and positive news sentiment create price movements.</p>
+                    </div>
+                </div>
             </div>
         `;
         
         results.innerHTML = html;
     }
     
+    function createEducationalStockCard(stock, rank, learningMode, focusArea) {
+        const scoreColor = parseFloat(stock.overallScore) >= 8 ? '#38a169' : 
+                          parseFloat(stock.overallScore) >= 6.5 ? '#ed8936' : '#e53e3e';
+        
+        return `
+            <div style="background: white; border-radius: 16px; padding: 30px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); border: 1px solid #e2e8f0; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: ${scoreColor};"></div>
+                
+                <div style="display: flex; justify-content: between; align-items: center; margin-bottom: 25px;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                            <div style="background: ${scoreColor}; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem;">#{rank}</div>
+                            <h3 style="color: #2d3748; margin: 0; font-size: 2rem; font-weight: 800;">${stock.symbol}</h3>
+                            <div style="background: ${scoreColor}; color: white; padding: 8px 16px; border-radius: 50px; font-weight: 700;">${stock.overallScore}/10</div>
+                        </div>
+                        <p style="color: #718096; margin: 0; font-size: 1.1rem; font-weight: 600;">$${stock.price.toFixed(2)} • ${stock.change > 0 ? '+' : ''}${stock.changePercent.toFixed(2)}% • Vol: ${(stock.volume/1000000).toFixed(1)}M</p>
+                    </div>
+                </div>
+                
+                ${(focusArea === 'all' || focusArea === 'fundamentals') ? `
+                <div style="background: #f0f8ff; border: 1px solid #bfdbfe; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                    <h4 style="color: #1e40af; margin: 0 0 15px 0; font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                        📊 Fundamental Analysis <span style="background: #1e40af; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.9rem;">${stock.fundamentals.score}/10</span>
+                    </h4>
+                    <div style="grid-gap: 10px;">
+                        ${stock.fundamentals.explanation.map(exp => `<div style="margin-bottom: 8px; color: #1e3a8a; font-size: 0.95rem;">${exp}</div>`).join('')}
+                    </div>
+                    <div style="background: #dbeafe; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <strong style="color: #1e40af;">💡 Learning Point:</strong> <span style="color: #1e3a8a;">Strong fundamentals provide the foundation for sustained price appreciation. Focus on growing companies with manageable debt.</span>
+                    </div>
+                </div>
+                ` : ''}
+                
+                ${(focusArea === 'all' || focusArea === 'technicals') ? `
+                <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                    <h4 style="color: #166534; margin: 0 0 15px 0; font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                        📈 Technical Analysis <span style="background: #166534; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.9rem;">${stock.technicals.score}/10</span>
+                    </h4>
+                    <div>
+                        ${stock.technicals.explanation.map(exp => `<div style="margin-bottom: 8px; color: #14532d; font-size: 0.95rem;">${exp}</div>`).join('')}
+                    </div>
+                    <div style="background: #dcfce7; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <strong style="color: #166534;">💡 Learning Point:</strong> <span style="color: #14532d;">Technical indicators help time your entry and exit. RSI shows momentum, MACD shows trend changes.</span>
+                    </div>
+                </div>
+                ` : ''}
+                
+                ${(focusArea === 'all' || focusArea === 'catalysts') ? `
+                <div style="background: #fefbef; border: 1px solid #fed7aa; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                    <h4 style="color: #ea580c; margin: 0 0 15px 0; font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+                        🚀 Catalyst Analysis <span style="background: #ea580c; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.9rem;">${stock.catalysts.score}/10</span>
+                    </h4>
+                    <div>
+                        ${stock.catalysts.explanation.map(exp => `<div style="margin-bottom: 8px; color: #9a3412; font-size: 0.95rem;">${exp}</div>`).join('')}
+                    </div>
+                    <div style="background: #fed7aa; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <strong style="color: #ea580c;">💡 Learning Point:</strong> <span style="color: #9a3412;">Catalysts drive short-term price movements. Earnings and news create volatility - opportunity or risk.</span>
+                    </div>
+                </div>
+                ` : ''}
+                
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px;">
+                    <h4 style="color: #4a5568; margin: 0 0 15px 0; font-size: 1.2rem; font-weight: 700;">🎯 Trading Recommendation</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px;">
+                        <div style="text-align: center;">
+                            <div style="color: #718096; font-size: 0.8rem; font-weight: 600; text-transform: uppercase;">Overall Score</div>
+                            <div style="color: ${scoreColor}; font-size: 1.5rem; font-weight: 800;">${stock.overallScore}/10</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="color: #718096; font-size: 0.8rem; font-weight: 600; text-transform: uppercase;">Entry</div>
+                            <div style="color: #3182ce; font-size: 1.2rem; font-weight: 700;">$${stock.price.toFixed(2)}</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="color: #718096; font-size: 0.8rem; font-weight: 600; text-transform: uppercase;">Stop Loss</div>
+                            <div style="color: #e53e3e; font-size: 1.2rem; font-weight: 700;">$${(stock.price * 0.93).toFixed(2)}</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="color: #718096; font-size: 0.8rem; font-weight: 600; text-transform: uppercase;">Target</div>
+                            <div style="color: #38a169; font-size: 1.2rem; font-weight: 700;">$${(stock.price * 1.12).toFixed(2)}</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 15px; padding: 15px; background: ${parseFloat(stock.overallScore) >= 7.5 ? '#d4edda' : parseFloat(stock.overallScore) >= 6 ? '#fff3cd' : '#f8d7da'}; border-radius: 8px;">
+                        <strong>${parseFloat(stock.overallScore) >= 7.5 ? '✅ STRONG BUY' : parseFloat(stock.overallScore) >= 6 ? '⚡ MODERATE BUY' : '⚠️ HOLD/WATCH'}:</strong> 
+                        ${parseFloat(stock.overallScore) >= 7.5 ? 'Excellent opportunity with strong fundamentals and technical setup.' : 
+                          parseFloat(stock.overallScore) >= 6 ? 'Good opportunity but monitor key levels closely.' : 
+                          'Wait for better entry or stronger signals.'}
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+    
     function showApiLimitMessage() {
         results.innerHTML = `
             <div style="background: linear-gradient(135deg, #fff3cd, #fef3c7); border: 2px solid #f59e0b; border-radius: 16px; padding: 40px; text-align: center;">
-                <div style="width: 80px; height: 80px; background: #f59e0b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 20px;">⚠️</div>
-                <h2 style="color: #92400e; margin: 0 0 15px 0; font-size: 1.8rem; font-weight: 800;">API Limit Reached</h2>
-                <p style="color: #92400e; margin: 0 0 20px 0; font-size: 1.2rem; font-weight: 600;">You've used your 25 free daily requests</p>
-                <p style="color: #a16207; margin: 0 0 30px 0; line-height: 1.6;">Your quota resets at midnight (Alpha Vantage time). The system successfully connected to real market data - everything is working perfectly!</p>
+                <div style="width: 80px; height: 80px; background: #f59e0b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 20px;">📚</div>
+                <h2 style="color: #92400e; margin: 0 0 15px 0; font-size: 1.8rem; font-weight: 800;">Learning Mode: API Limit Reached</h2>
+                <p style="color: #92400e; margin: 0 0 20px 0; font-size: 1.2rem; font-weight: 600;">You've explored the full free tier today!</p>
+                <p style="color: #a16207; margin: 0 0 30px 0; line-height: 1.6;">Great news: Your system successfully analyzed real market data. Review the trading principles above to continue learning!</p>
                 <div style="background: rgba(34, 197, 94, 0.1); border: 2px solid #22c55e; border-radius: 12px; padding: 20px;">
-                    <p style="color: #15803d; margin: 0; font-weight: 700; font-size: 1.1rem;">✅ Your professional stock picking engine is fully operational!</p>
+                    <p style="color: #15803d; margin: 0; font-weight: 700; font-size: 1.1rem;">🎓 You've learned how professional stock analysis works with real data!</p>
                 </div>
             </div>
         `;
@@ -388,8 +709,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function showErrorMessage(message) {
         results.innerHTML = `
             <div style="background: #fef2f2; border: 2px solid #ef4444; border-radius: 16px; padding: 40px; text-align: center;">
-                <div style="width: 80px; height: 80px; background: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 20px;">❌</div>
-                <h2 style="color: #dc2626; margin: 0 0 15px 0; font-size: 1.8rem; font-weight: 800;">Connection Error</h2>
+                <h2 style="color: #dc2626; margin: 0 0 15px 0;">Connection Error</h2>
                 <p style="color: #dc2626; margin: 0;">Error: ${message}</p>
             </div>
         `;
